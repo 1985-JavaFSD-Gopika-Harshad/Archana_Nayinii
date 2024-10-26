@@ -1,0 +1,29 @@
+public class GenericFindMax {
+	public static <T extends Comparable<T>> T findMax(T[] array)
+	{
+		if(array==null || array.length==0)
+		{
+			throw new IllegalArgumentException("Array must not be null or empty.");
+		}
+		T max=array[0];
+		for(T element:array)
+		{
+			if(element.compareTo(max)>0)
+			{
+				max=element;
+			}
+		}
+		return max;
+		
+	}
+	public static void main(String[] args)
+	{
+		Integer[] intArray= {4,5,3,4,2,9,1};
+		System.out.println("Max int array: "+findMax(intArray));
+		Double[] doubleArray= {10.1,2.2,3.3,4.4,6.6};
+		System.out.println("Max double array: "+findMax(doubleArray));
+		String[] stringArray= {"Suppu", "Gayathri", "Shruthi"};
+		System.out.println("Max string array: "+findMax(stringArray));
+	}
+
+}
